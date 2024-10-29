@@ -74,7 +74,6 @@ public final class UseArithmeticService {
                 hasSucceded = true;
             }catch(IOException e){
                 System.out.println("Error during the receiving");
-                hasSucceded = false;
             }
         }
 
