@@ -36,7 +36,7 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      * In order to save the people followed by a user organized in groups, adopt
      * a generic-type Map:  think of what type of keys and values would best suit the requirements
      */
-
+    private final Map<String,List<U>> friendsMap;
     /*
      * [CONSTRUCTORS]
      *
@@ -63,6 +63,7 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
         super(name, surname, user, userAge);
+        friendsMap = new HashMap<>();
     }
 
     /*
@@ -70,7 +71,7 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user){
         super(name,surname,user);
-    }
+        friendsMap = new HashMap<>();    }
     /*
      * [METHODS]
      *
