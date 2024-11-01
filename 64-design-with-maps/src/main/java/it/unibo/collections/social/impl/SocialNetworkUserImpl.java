@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -76,10 +77,19 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      * [METHODS]
      *
      * Implements the methods below
-     */
+     */    
+
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
-        return false;
+        if(this.getFollowedUsers().contains(user)){
+            return false;
+        }
+        if(!friendsMap.containsKey(circle)){
+            friendsMap.put(circle, new ArrayList<>());
+        }
+        friendsMap.get(circle).add(user);
+
+        return true;
     }
 
     /**
@@ -89,11 +99,19 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     @Override
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
-        return null;
+        if(!friendsMap.containsKey(groupName)){
+            return Collections.emptyList();
+        }
+        List<U> copyOfFriendsInGrup = new ArrayList<>(friendsMap.get(groupName));
+        return copyOfFriendsInGrup;
     }
 
     @Override
     public List<U> getFollowedUsers() {
-        return null;
+        List<U> followedPerson = new LinkedList<>();
+        for(var entrySet : friendsMap.entrySet()){
+            followedPerson.addAll(entrySet.getValue());
+        }
+        return followedPerson;
     }
 }
