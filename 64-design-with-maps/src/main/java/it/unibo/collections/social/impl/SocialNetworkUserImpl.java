@@ -102,8 +102,7 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
         if(!friendsMap.containsKey(groupName)){
             return Collections.emptyList();
         }
-        List<U> copyOfFriendsInGrup = new ArrayList<>(friendsMap.get(groupName));
-        return copyOfFriendsInGrup;
+        return new ArrayList<>(friendsMap.get(groupName));
     }
 
     @Override
