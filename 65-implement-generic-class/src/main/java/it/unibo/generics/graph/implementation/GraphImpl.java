@@ -14,11 +14,11 @@ public class GraphImpl <N> implements Graph<N>{
     private final Map<N, Set<N>> adjacencyMap;
     TypeOfPathSearch typeOfPath;
 
-    GraphImpl(){
+    public GraphImpl(){
         this(TypeOfPathSearch.DEPTH_FIRST);
     }
 
-    GraphImpl(TypeOfPathSearch type){
+    public GraphImpl(TypeOfPathSearch type){
         typeOfPath = type;
         adjacencyMap = new HashMap<>();
     }
