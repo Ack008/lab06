@@ -1,6 +1,7 @@
 package it.unibo.generics.graph;
 
 import it.unibo.generics.graph.api.Graph;
+import it.unibo.generics.graph.api.TypeOfPathSearch;
 import it.unibo.generics.graph.implementation.*;
 
 import java.util.Arrays;
@@ -24,6 +25,7 @@ public final class UseGraph {
          * Test your graph implementation(s) by calling testGraph
          */
         testGraph(new GraphImpl<String>());
+        testGraph(new GraphImpl<String>(TypeOfPathSearch.DEPTH_FIRST));
     }
 
     private static void testGraph(final Graph<String> graph) {
