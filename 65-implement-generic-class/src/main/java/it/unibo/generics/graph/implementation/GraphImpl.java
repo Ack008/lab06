@@ -6,14 +6,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import it.unibo.generics.graph.api.Graph;
+import it.unibo.generics.graph.api.*;
 
 public class GraphImpl <N> implements Graph<N>{
     private final Map<N, Set<N>> adjacencyMap;
+    TypeOfPathSearch typeOfPath;
 
     GraphImpl(){
+        this(TypeOfPathSearch.DEPTH_FIRST);
+    }
+    
+    GraphImpl(TypeOfPathSearch type){
+        typeOfPath = type;
         adjacencyMap = new HashMap<>();
     }
+
 
     @Override
     public void addEdge(N source, N target) {
@@ -52,8 +59,7 @@ public class GraphImpl <N> implements Graph<N>{
 
     @Override
     public Set<N> nodeSet() {
-        // TODO Auto-generated method stub
-        return null;
+        return new HashSet<>(adjacencyMap.keySet());
     }
 
 }
