@@ -48,7 +48,7 @@ public class GraphImpl <N> implements Graph<N>{
         
     }
 
-    List<N> bfs(N source, N target){
+    private List<N> bfs(N source, N target){
         if(source.equals(target)){
             return List.of(source);
         }
@@ -77,6 +77,9 @@ public class GraphImpl <N> implements Graph<N>{
         }
         return path;
     }
+
+
+
 
     @Override
     public List<N> getPath(N source, N target) {
