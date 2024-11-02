@@ -47,8 +47,7 @@ public class GraphImpl <N> implements Graph<N>{
 
     @Override
     public Set<N> linkedNodes(N node) {
-        // TODO Auto-generated method stub
-        return null;
+        return new HashSet<>(adjacencyMap.get(node));
     }
 
     @Override
